@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Join Building A Brain Club</title>
+        <link rel="stylesheet" href="style.css">
+    </head>
+    <body class="join-page">
+        <div class="custom-cursor"></div>
+        <header>
+            <img src="images/logos/Golden-BAB-logo-transparent.png" alt="Building A Brain Club loge" class="club-logo">
+            <h1>Join Us</h1>
+            <p>Building A Brain Club at University of South Carolina</p>
+        </header>
+        <main>
+            <section class="join-card">
+                <h2>Create Your Account</h2>
+                <form id="join-form">
+                    <label for="name">Full Name</label>
+                    <input type="text" id="name" name="name">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" name="email">
+                    <label for="password">Password</label>
+                    <input type="password" id="password" name="password">
+                    <label for="confirm-password">Repeat Password</label>
+                    <input type="password" id="confirm-password" name="confirm-password">
+                    <p id="password-message" class="form-message"></p>
+                    <div class="form-group role-group">
+                        <label for="role">Access Level Request</label>
+                        <select id="role" name="role" required>
+                            <option value="" disabled selected>Select your access level</option>
+                            <option value="guest">Guest - Explore the club</option>
+                            <option value="member">Member - Garnet Gate verification required</option>
+                            <option value="admin">Admin - Approval required</option>
+                            <option value="executive">Executive - Higher approval required</option>
+                        </select>
+                        <p class="role-note">
+                            Member and leadership roles require approval before access is granted.
+                        </p>
+                    </div>
+                    <button type="submit">Submit Request</button>
+                </form>
+            </section>
+        </main>
+        <script>
+            const joinForm = document.getElementById("join-form");
+            const passwordInput = document.getElementById("password");
+            const confirmPasswordInput = document.getElementById("confirm-password");
+            const passwordMessage = document.getElementById("password-message");
+            joinForm.addEventListener("submit",function(event){
+                if(passwordInput.value !== confirmPasswordInput.value){
+                    event.preventDefault();
+                    passwordMessage.textContent = "Are you sure about your password? (passwords do not match)";
+                }else{
+                    passwordMessage.textContent = "";
+                }
+            });
+        </script>
+        <script src="script.js"></script>
+    </body>
+</html>

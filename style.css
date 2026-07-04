@@ -1,0 +1,333 @@
+*{
+    box-sizing: border-box;
+}
+body{
+    margin: 0;
+    min-height: 100vh;
+    font-family: "Orbitron", "Trebuchet MS", Arial, sans-serif;
+    color: #2a2415;
+    line-height: 1.6;
+    background-color: #ffffff;  
+}
+body, a, button, select, input, textarea {
+    cursor: none; /*I am using a custom cursor*/
+}
+body::before{
+    content: "";
+    position: fixed;
+    inset: 0;
+    background: 
+    /*If you ever want to change the background for this web page for some unknown reason, you can add:
+     <linear-gradient(rgba(255, 255, 255, 0.82), rgba(255, 250, 235, 0.9)),   
+     infront of the url to prevent the background overshadowing the content*/
+        url("images/Main-background.png") center / cover no-repeat;
+    z-index: -2;
+}
+body::after{
+    content: "";
+    position: fixed;
+    inset: 0;
+    background: 
+        radial-gradient(circle at 20% 20%, rgba(255, 215, 0, 0.22), transparent 28%),
+        radial-gradient(circle at 80% 10%, rgba(201, 162, 39, 0.18), transparent 25%),
+        linear-gradient(120deg, transparent, rgba(255, 215, 0, 0.12), transparent);
+    z-index: -1;
+}/*This golden glow fits quite well with the current background, change the rgba if you change the background*/
+header{
+    text-align: center;
+    padding: 90px 20px 70px;
+    border-bottom: 2px solid rgba(201, 162, 39, 0.75);
+}
+h1{
+    margin: 0;
+    font-size: 4rem;
+    background: linear-gradient(
+        70deg,
+       #8a6508,
+        #c9a227,
+        #fff1a8,
+        #ffd700,
+        #8a6508
+    );
+    background-size: 200% auto;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: gold-shine 5s linear infinite;
+    /*text-shadow:
+        0 0 3px rgba(201, 162, 39, 0.65),
+        0 0 7px rgba(255, 215, 0, 0.45),
+        0 0 14px rgba(184, 134, 11, 0.3);   
+    personally I don;t like the text shadow that much because I like that distict glow.
+    If you think that glow is blinding your eye, you can put this on*/
+}
+header p{
+    margin-top: 12px;
+    color: #6f5514;
+    font-size: 1.1rem;
+    letter-spacing: 2px;
+}
+main{
+    max-width: 950px;
+    margin: 50px auto;
+    padding: 0 22px;
+}
+section{
+    margin-bottom: 42px;
+    padding: 28px;
+    /*background: rgba(255, 255, 255, 0.78);*/
+    border: 1px solid rgba(201, 162, 39, 0.45);
+    box-shadow: 0 0 24px rgba(201, 162, 39, 0.16);
+}
+h2{
+    margin-top: 0;
+    color: #9f7608;
+    border-bottom: 1px solid rgba(201, 162, 39, 0.65);
+    padding-bottom: 10px;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+}
+p{
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-size: 1.05rem;
+}
+ul{
+    padding-left: 22px;
+}
+li{
+    margin-bottom: 10px;
+    font-family: Georgia, "Times New Roman", serif;
+}
+a{
+    color: #9f7608;
+    text-decoration: none;
+    font-weight: bold;
+}
+a:hover{
+    color: #d4af37;
+    text-shadow: 0 0 10px rgba(212, 175, 55, 0.45);
+}
+@keyframes gold-shine{
+    from{
+        background-position: 0% center;
+    }
+    to{
+        background-position: 200% center;
+    }
+}
+@media (max-width: 600px) {
+    h1 {
+        font-size: 2.6rem;
+    }
+
+    section {
+        padding: 22px;
+    }
+
+    main {
+        margin: 35px auto;
+    }
+    .brain-showcase {
+        grid-template-columns: 1fr;
+    }
+
+    .brain-model {
+        height: 320px;
+    }
+}
+.social-links{
+    display: flex;
+    gap: 16px;
+    align-items: center;
+}
+.social-icon{
+    width: 32px;
+    height: 32px;
+    object-fit: contain;
+}
+.social-icon:hover{
+    transform: scale(1.12);
+    filter: drop-shadow(0 0 8px rgba(212, 175, 55, 0.8));
+}
+footer{
+    text-align: center;
+    padding: 26px 18px;
+    color: #6f5514;
+    background: rgba(255, 250, 235, 0.9);
+    border-top: 2px solid rgba(201, 162, 39, 0.75);
+}
+.auth-buttons{
+    display: flex;
+    justify-content: center;
+    gap: 18px;
+    margin-top: 28px;
+}
+.auth-button {
+    padding: 12px 24px;
+    border: 1px solid #d4af37;
+    color: #8a6508;
+    background: rgba(255, 255, 255, 0.78);
+    text-decoration: none;
+    font-weight: bold;
+    letter-spacing: 1px;
+    transition: 0.25s ease;
+}
+.auth-button:hover {
+    color: #ffffff;
+    background: #d4af37;
+    box-shadow: 0 0 12px rgba(212, 175, 55, 0.65);
+}
+.club-logo{
+    width: 200px;
+    height: 200px;
+    object-fit: contain;
+    margin-bottom: 18px;
+    /*filter: drop-shadow(0 0 8px rgba(212, 175, 55, 0.45));
+    Alas, I decide to make a tranparent logo, so this line is dropped although that golden glow is neat*/
+}
+.join-page form{
+    max-width: 620px;
+}
+.form-message {
+    margin: 0;
+    color: #9f7608;
+    font-weight: bold;
+}
+.join-card form{
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+}
+.join-card label{
+    color: #8a6508;
+    font-weight: bold;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    font-size: 0.85rem;
+}
+.join-card input,
+.join-card select {
+    width: 100%;
+    padding: 14px 16px;
+    border: 1px solid rgba(201, 162, 39, 0.7);
+    background: rgba(255, 255, 255, 0.86);
+    color: #8a6508;
+    font-family: "Orbitron", "Trebuchet MS", Arial, sans-serif;
+    font-size: 0.95rem;
+    letter-spacing: 0.5px;
+    outline: none;
+    box-shadow: inset 0 0 10px rgba(212, 175, 55, 0.12);
+    transition: border-color 0.25s ease, box-shadow 0.25s ease, background 0.25s ease;
+}
+.join-card input::placeholder {
+    color: rgba(111, 85, 20, 0.55);
+}
+.join-card input:focus,
+.join-card select:focus {
+    border-color: #ffd700;
+    background: rgba(255, 255, 255, 0.96);
+    box-shadow:
+        inset 0 0 10px rgba(212, 175, 55, 0.18),
+        0 0 14px rgba(212, 175, 55, 0.45);
+}
+.join-card button {
+    margin-top: 12px;
+    padding: 14px 20px;
+    border: 1px solid #d4af37;
+    background: linear-gradient(70deg, #8a6508, #d4af37, #f6d66b, #8a6508);
+    background-size: 200% auto;
+    color: #ffffff;
+    font-family: "Orbitron", "Trebuchet MS", Arial, sans-serif;
+    font-weight: bold;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    transition: 0.25s ease;
+}
+.join-card button:hover {
+    background-position: 200% center;
+    box-shadow: 0 0 16px rgba(212, 175, 55, 0.65);
+    transform: translateY(-2px);
+}
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+}
+.role-group {
+  margin-top: 4px;
+  padding: 16px;
+  border: 1px solid rgba(212, 175, 55, 0.45);
+  background: rgba(255, 255, 255, 0.52);
+  box-shadow: inset 0 0 18px rgba(212, 175, 55, 0.12);
+}
+.role-group label {
+  color: #b8860b;
+  text-shadow: 0 0 5px rgba(212, 175, 55, 0.35);
+}
+.role-group select {
+  min-height: 48px;
+}
+.role-note {
+  margin: 4px 0 0;
+  color: #6f5514;
+  font-size: 0.9rem;
+  letter-spacing: 0.4px;
+}
+.custom-cursor {
+    position: fixed;
+    width: 28px;
+    height: 32px;
+    pointer-events: none;
+    z-index: 9999; /*Don't set other z index higher than this if you still want to see the cursor*/
+    background: linear-gradient(
+        70deg,
+        #8a6508,
+        #c9a227,
+        #fff1a8,
+        #ffd700,
+        #8a6508
+    );
+    background-size: 200% auto;
+    clip-path: polygon(0 0, 0 32px, 9px 24px, 15px 36px, 21px 33px, 15px 21px, 28px 21px);
+    animation: gold-shine 5s linear infinite;
+    filter: drop-shadow(0 0 6px rgba(212, 175, 55, 0.65));
+    transform: translate(-2px, -2px);
+}
+.custom-cursor.cursor-clickable {
+    transform: translate(-2px,-2px) scale(1.2);
+    filter: drop-shadow(0 0 10px rgba(212, 175, 55, 0.9));
+}
+.custom-cursor.cursor-hidden{
+    opacity: 0;
+}
+.signin-card {
+  max-width: 620px;
+  margin-left: auto;
+  margin-right: auto;
+}
+.signin-note {
+  text-align: center;
+  margin-top: 22px;
+  color: #6f5514;
+}
+.join-page::before,
+.signin-page::before{
+    background:
+        linear-gradient(rgba(255, 255, 255, 0.35), rgba(255, 250, 235, 0.45)),
+        url("images/Auth-background.png") center / cover no-repeat
+}
+.brain-showcase{
+    display: grid;
+    grid-template-columns: 1fr 1.2fr;
+    gap: 28px;
+    align-items: center;
+}
+.brain-text p {
+    color: #6f5514;
+}
+.brain-model {
+    width: 100%;
+    height: 420px;
+    background: rgba(255, 255, 255, 0.35);
+    border: 1px solid rgba(201, 162, 39, 0.45);
+    box-shadow: 0 0 24px rgba(201, 162, 39, 0.22);
+}
